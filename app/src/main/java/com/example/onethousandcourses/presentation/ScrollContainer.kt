@@ -1,4 +1,4 @@
-package com.example.onethousandcourses.compose
+package com.example.onethousandcourses.presentation
 
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.onethousandcourses.ui.theme.backgroundColorCardGreen
+import com.example.onethousandcourses.ui.theme.green
 import com.example.onethousandcourses.ui.theme.backgroundColorCardGrey
 import com.example.onethousandcourses.utils.LabelText
 
@@ -41,7 +41,7 @@ fun ScrollContainer(modifier: Modifier = Modifier) {
                 )
                 CardCourse(
                     text = textN.s2, rotateAngle = -15f, color = CardDefaults.cardColors(
-                        backgroundColorCardGreen
+                        green
                     ), translationForY = 20f
                 )
                 CardCourse(
@@ -63,7 +63,7 @@ fun ScrollContainer(modifier: Modifier = Modifier) {
                 )
                 CardCourse(
                     text = textN.s9,
-                    color = CardDefaults.cardColors(backgroundColorCardGreen),
+                    color = CardDefaults.cardColors(green),
                     rotateAngle = 15f,
                     translationForY = -25f
                 )
@@ -95,7 +95,7 @@ fun ScrollContainer(modifier: Modifier = Modifier) {
                 )
                 CardCourse(
                     text = textN.s15,
-                    color = CardDefaults.cardColors(backgroundColorCardGreen),
+                    color = CardDefaults.cardColors(green),
                     rotateAngle = -15f,
                     translationForY = -25f
                 )

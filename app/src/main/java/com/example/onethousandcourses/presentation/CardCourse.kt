@@ -1,4 +1,4 @@
-package com.example.onethousandcourses.compose
+package com.example.onethousandcourses.presentation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
@@ -16,7 +16,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.onethousandcourses.ui.theme.textColorOvalCard
+import com.example.onethousandcourses.ui.theme.textWhite
 
 @Preview(showBackground = true)
 @Composable
@@ -42,7 +42,7 @@ fun CardCourse(
                 .padding(20.dp),
             contentAlignment = Alignment.Center
         ) {
-            Text(text, color = textColorOvalCard, fontSize = 19.sp)
+            Text(text, color = textWhite, fontSize = 19.sp)
         }
     }
 

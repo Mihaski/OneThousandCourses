@@ -1,4 +1,4 @@
-package com.example.onethousandcourses.compose.screens
+package com.example.onethousandcourses.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -18,20 +18,22 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.onethousandcourses.R
-import com.example.onethousandcourses.compose.ScrollContainer
-import com.example.onethousandcourses.ui.theme.backgroundColorCardGreen
-import com.example.onethousandcourses.ui.theme.textColorOvalCard
+import com.example.onethousandcourses.presentation.ScrollContainer
+import com.example.onethousandcourses.ui.theme.green
+import com.example.onethousandcourses.ui.theme.textWhite
 
 @Preview(showBackground = true)
 @Composable
 fun OnBoardingScreen(
-    onClick: () -> Unit = {
-    },
+    modifier: Modifier = Modifier,
+    navController: NavController = rememberNavController(),
 ) {
 
     Column(
-        Modifier
+        modifier
             .fillMaxSize()
             .padding(0.dp)
             .background(Color.Black)
@@ -46,7 +48,7 @@ fun OnBoardingScreen(
             Text(
                 stringResource(R.string.onboarding_title),
                 Modifier.padding(bottom = 30.dp),
-                color = textColorOvalCard,
+                color = textWhite,
                 fontSize = 36.sp,
                 textAlign = TextAlign.Center
             )
@@ -55,11 +57,11 @@ fun OnBoardingScreen(
         }
 
         Button(
-            { onClick() },
+            { navController.navigate("sign_in") },
             Modifier
                 .padding(10.dp)
                 .fillMaxWidth(),
-            colors = ButtonDefaults.buttonColors(backgroundColorCardGreen)
+            colors = ButtonDefaults.buttonColors(green)
         ) {
             Text(stringResource(R.string.button_continue_onboarding_screen), fontSize = 16.sp)
         }
