@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "OneThousandCourses"
 include(":app")
- 
+include(":data")
