@@ -59,4 +59,7 @@ dependencies {
     //Added
     implementation(libs.androidx.navigation.compose)
 
+    implementation(project(":domain"))
+
+
 }
