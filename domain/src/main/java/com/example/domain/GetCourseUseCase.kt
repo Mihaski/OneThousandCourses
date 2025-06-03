@@ -1,7 +1,7 @@
 package com.example.domain
 
-class GetCourseUseCase(private val courseRepository: CourseRepository) {
+class GetCourseUseCase(private val courseRepositoryInterface: CourseRepositoryInterface) {
 
-    fun getCourseUseCase(courseId: Int): Course =
-        courseRepository.getCourseDomainInterface(courseId)
+    suspend fun getCourseUseCase(courseId: Int): Course =
+        courseRepositoryInterface.getCourseDomainInterface(courseId)
 }
