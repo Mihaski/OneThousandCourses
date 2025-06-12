@@ -8,7 +8,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.rememberNavController
 import com.example.onethousandcourses.presentation.OneNavHost
 import com.example.onethousandcourses.ui.theme.OneThousandCoursesTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private lateinit var viewModel: MainViewModel

@@ -13,7 +13,10 @@ navVersion = "2.9.0"
 appcompat = "1.7.0"
 material = "1.12.0"
 jetbrainsKotlinJvm = "2.0.0"
-#Data
+hiltVersion = "2.56.2"
+daggerVersion = "2.56.2"
+kspVersion = "2.0.0-1.0.24"
+roomVersion = "2.7.1"
 retrofitVer = "2.11.0"
 retrofitConverterGsonVer = "2.5.0"
 
@@ -36,9 +39,16 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navVersion" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-#Data
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVer" }
 retrofit_converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitConverterGsonVer" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
+room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
+hilt-android-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hiltVersion" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hiltVersion" }
+hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion" }
+dagger-google = { group = "com.google.dagger", name = "dagger", version.ref = "daggerVersion" }
+ksp-dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "daggerVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -46,4 +56,8 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+#Added
+hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
+ksp-plugin = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
+room-plugin = { id = "androidx.room", version.ref = "roomVersion" }
 
