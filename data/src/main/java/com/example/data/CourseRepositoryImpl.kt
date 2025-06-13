@@ -6,8 +6,8 @@ import com.example.domain.CourseRepositoryInterface
 import javax.inject.Inject
 
 class CourseRepositoryImpl @Inject constructor(
-    val retrofitInterface: RetrofitInterface,
-    val coursesMapper: CoursesMapper,
+    private val retrofitInterface: RetrofitInterface,
+    private val coursesMapper: CoursesMapper,
 ) : CourseRepositoryInterface {
 
     override suspend fun getCourseDomainInterface(courseId: Int): Course =

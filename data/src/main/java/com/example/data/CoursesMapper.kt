@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class CoursesMapper @Inject constructor() {
 
-    fun networkToDomain(networkCourse: NetworkCourse) = Course(
+    private fun networkToDomain(networkCourse: NetworkCourse) = Course(
         hasLike = networkCourse.hasLike,
         id = networkCourse.id,
         price = networkCourse.price,
