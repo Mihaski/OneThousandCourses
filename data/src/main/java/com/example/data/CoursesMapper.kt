@@ -2,10 +2,11 @@ package com.example.data
 
 import com.example.data.network.NetworkCourse
 import com.example.domain.Course
+import javax.inject.Inject
 
-class CoursesMapper {
+class CoursesMapper @Inject constructor() {
 
-    fun networkToDomain(networkCourse: NetworkCourse) = Course(
+    private fun networkToDomain(networkCourse: NetworkCourse) = Course(
         hasLike = networkCourse.hasLike,
         id = networkCourse.id,
         price = networkCourse.price,

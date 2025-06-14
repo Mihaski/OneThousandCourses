@@ -1,7 +1,9 @@
 package com.example.domain
 
-class GetListCoursesUseCase(private val courseRepository: CourseRepository) {
+import javax.inject.Inject
 
-    fun getListCoursesUseCase(): List<Course> =
-        courseRepository.getListCoursesDomainInterface()
+class GetListCoursesUseCase @Inject constructor(private val courseRepository: CourseRepositoryInterface) {
+
+    suspend fun getListCoursesUseCase(): List<Course> =
+        courseRepository.getCoursesListDomainInterface()
 }

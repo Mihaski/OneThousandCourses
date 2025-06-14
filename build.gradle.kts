@@ -5,7 +5,13 @@ plugins {
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.jetbrains.kotlin.jvm) apply false
-    val roomVersion = "2.7.1"
-    id("androidx.room") version roomVersion apply false
-    id("com.google.devtools.ksp") version "2.0.21-1.0.27" apply false
+    //Added
+    alias(libs.plugins.room.plugin) apply false
+    alias(libs.plugins.ksp.plugin) apply false
+    alias(libs.plugins.hilt.plugin) apply false
+}
+buildscript{
+    dependencies {
+        classpath(libs.hilt.android.gradle.plugin)
+    }
 }

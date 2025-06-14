@@ -1,8 +1,9 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    id("androidx.room")
-    id("com.google.devtools.ksp")
+    //Added
+    alias(libs.plugins.room.plugin)
+    alias(libs.plugins.ksp.plugin)
 }
 
 android {
@@ -49,12 +50,11 @@ dependencies {
     //Added
     implementation(libs.retrofit.converter)
     implementation(libs.retrofit)
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
+    implementation(libs.dagger.google)
+    ksp(libs.ksp.dagger.compiler)
 
     implementation(project(":domain"))
-
-    val roomVersion = "2.7.1"
-    implementation("androidx.room:room-runtime:$roomVersion")
-    ksp("androidx.room:room-compiler:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-
 }
