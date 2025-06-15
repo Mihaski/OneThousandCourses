@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.lifecycle.asLiveData
 import androidx.navigation.compose.rememberNavController
 import com.example.onethousandcourses.presentation.OneNavHost
 import com.example.onethousandcourses.ui.theme.OneThousandCoursesTheme
@@ -18,7 +19,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.refreshCourses()
+        viewModel.uiState.asLiveData()
+        //todo tut nado obnovit repository
 
         enableEdgeToEdge()
         setContent {

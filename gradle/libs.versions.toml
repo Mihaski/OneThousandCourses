@@ -14,7 +14,6 @@ appcompat = "1.7.0"
 material = "1.12.0"
 jetbrainsKotlinJvm = "2.0.0"
 hiltVersion = "2.56.2"
-daggerVersion = "2.56.2"
 kspVersion = "2.0.0-1.0.24"
 roomVersion = "2.7.1"
 retrofitVer = "2.11.0"
@@ -47,8 +46,6 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 hilt-android-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hiltVersion" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hiltVersion" }
 hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion" }
-dagger-google = { group = "com.google.dagger", name = "dagger", version.ref = "daggerVersion" }
-ksp-dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "daggerVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

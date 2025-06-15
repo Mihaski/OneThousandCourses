@@ -4,24 +4,21 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-05-29T09:53:40.324241Z">
+        <DropdownSelection timestamp="2025-06-15T13:30:33.110083600Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Pushka-Gonka\.android\avd\Pixel_2_API_30_2.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Pushka-Gonka\.android\avd\mdpiTooTemplate_2.avd" />
             </handle>
           </Target>
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="ScrollContainer">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="SignInScreen">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-05-29T08:45:17.279024900Z">
+        <DropdownSelection timestamp="2025-06-14T00:57:24.048707500Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Pushka-Gonka\.android\avd\Pixel_2_API_30_2.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Pushka-Gonka\.android\avd\mdpiTooTemplate_2.avd" />
             </handle>
           </Target>
         </DropdownSelection>
@@ -29,6 +26,17 @@
       </SelectionState>
       <SelectionState runConfigName="data">
         <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="OnBoardingScreen">
+        <option name="selectionMode" value="DROPDOWN" />
+        <DropdownSelection timestamp="2025-06-14T00:58:54.028248800Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Pushka-Gonka\.android\avd\mdpiTooTemplate_2.avd" />
+            </handle>
+          </Target>
+        </DropdownSelection>
+        <DialogSelection />
       </SelectionState>
     </selectionStates>
   </component>

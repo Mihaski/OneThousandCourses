@@ -4,6 +4,7 @@ plugins {
     //Added
     alias(libs.plugins.room.plugin)
     alias(libs.plugins.ksp.plugin)
+    alias(libs.plugins.hilt.plugin)
 }
 
 android {
@@ -53,8 +54,8 @@ dependencies {
     implementation(libs.room.runtime)
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
-    implementation(libs.dagger.google)
-    ksp(libs.ksp.dagger.compiler)
+    implementation(libs.hilt)
+    ksp(libs.hilt.compiler)
 
     implementation(project(":domain"))
 }

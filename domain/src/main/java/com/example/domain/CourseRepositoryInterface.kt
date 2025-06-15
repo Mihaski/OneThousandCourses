@@ -1,9 +1,8 @@
 package com.example.domain
 
+import kotlinx.coroutines.flow.Flow
+
 interface CourseRepositoryInterface {
 
-    suspend fun getCourseDomainInterface(courseId: Int): Course
-
-    suspend fun getCoursesListDomainInterface(): List<Course>
-
+    fun getListCoursesFlow(): Flow<List<Course>>
 }
