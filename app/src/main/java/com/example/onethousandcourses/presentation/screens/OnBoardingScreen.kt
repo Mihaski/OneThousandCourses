@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.onethousandcourses.R
-import com.example.onethousandcourses.presentation.ScrollContainer
+import com.example.onethousandcourses.presentation.parts.ScrollContainerHorizontal
 import com.example.onethousandcourses.ui.theme.green
 import com.example.onethousandcourses.ui.theme.textWhite
 
@@ -53,7 +53,7 @@ fun OnBoardingScreen(
                 textAlign = TextAlign.Center
             )
 
-            ScrollContainer()
+            ScrollContainerHorizontal()
         }
 
         Button(

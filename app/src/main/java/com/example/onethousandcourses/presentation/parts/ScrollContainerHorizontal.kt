@@ -1,4 +1,4 @@
-package com.example.onethousandcourses.presentation
+package com.example.onethousandcourses.presentation.parts
 
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
@@ -19,7 +19,7 @@ import com.example.onethousandcourses.utils.LabelText
 
 @Preview(showBackground = true)
 @Composable
-fun ScrollContainer(modifier: Modifier = Modifier) {
+fun ScrollContainerHorizontal(modifier: Modifier = Modifier) {
 
     val textN = LabelText()
 

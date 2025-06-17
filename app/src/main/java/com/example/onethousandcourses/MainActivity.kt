@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.lifecycle.asLiveData
 import androidx.navigation.compose.rememberNavController
-import com.example.onethousandcourses.presentation.OneNavHost
+import com.example.onethousandcourses.presentation.parts.OneNavHost
 import com.example.onethousandcourses.ui.theme.OneThousandCoursesTheme
 import dagger.hilt.android.AndroidEntryPoint
 

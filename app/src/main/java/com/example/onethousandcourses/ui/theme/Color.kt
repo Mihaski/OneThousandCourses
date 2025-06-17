@@ -10,12 +10,15 @@ val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 //Added
-val myBackgroundColor = Color(0xFF151515)
 //OnBoardingScreen
 val backgroundColorCardGrey = Color(0x4D32333A)
 val textWhite = Color(0xFFF2F2F3)
 val green = Color(0xFF12B956)
 //SignInScreen
 val grey = Color(0xFF32333A)
-val hintTextGrey = Color(0xFFF2F2F3)
+val hintTextGrey = Color(0xFF85858A)
 val strokeColor = Color(0xFF4D555E)
+//ItemList
+val greyCard = Color(0xFF24252A)
+val glass = Color(0x4D32333A)
+val indicatorColor= Color(0xFF32333A)

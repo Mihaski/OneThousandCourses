@@ -1,4 +1,4 @@
-package com.example.onethousandcourses.presentation
+package com.example.onethousandcourses.presentation.parts
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
