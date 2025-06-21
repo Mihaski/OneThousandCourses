@@ -1,10 +1,12 @@
 package com.example.onethousandcourses.presentation.screens
 
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -31,7 +33,10 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.onethousandcourses.R
+import com.example.onethousandcourses.presentation.NavigationItem
 import com.example.onethousandcourses.ui.theme.appStyle
 import com.example.onethousandcourses.ui.theme.green
 import com.example.onethousandcourses.ui.theme.grey
@@ -43,10 +48,11 @@ import com.example.onethousandcourses.ui.theme.textWhite
 @Composable
 fun SignInScreen(
     modifier: Modifier = Modifier,
-    onClick: () -> Unit = { },
+    navController: NavController = rememberNavController(),
 ) {
     Column(
         modifier = modifier
+            .fillMaxSize()
             .background(Color.Black)
             .padding(10.dp),
         verticalArrangement = Arrangement.Center,
@@ -87,8 +93,7 @@ fun SignInScreen(
                 unfocusedTextColor = textWhite,
                 focusedTextColor = textWhite
             ),
-            onValueChange = {
-                    newInput ->
+            onValueChange = { newInput ->
                 textEmail = newInput
             },
             placeholder = { Text("example@gmail.com") })
@@ -122,8 +127,13 @@ fun SignInScreen(
             placeholder = { Text("Введите пароль") }
         )
 
+//button navigate
         Button(
-            onClick,
+            onClick = {
+                if (textEmail.text.isNotEmpty() &&
+                    textPassword.text.isNotEmpty()
+                ) navController.navigate("main")
+            },
             Modifier
                 .fillMaxWidth()
                 .padding(bottom = 15.dp),
@@ -136,21 +146,26 @@ fun SignInScreen(
             Text("Нету аккаунта?", style = appStyle)
             Text("Региcтрация", Modifier.padding(start = 5.dp), style = appStyle, color = green)
         }
-        Text("Забыл пароль", Modifier.padding(bottom = 65.dp), style = appStyle, color = green)
+        Text("Забыл пароль", Modifier.padding(bottom = 25.dp), style = appStyle, color = green)
         Box(
             Modifier
-                .padding(bottom = 45.dp)
+                .padding(bottom = 5.dp)
                 .clip(CircleShape)
                 .background(strokeColor)
                 .fillMaxWidth()
                 .height(2.dp)
         )
+
+//container with web buttons
         Row(
             Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Button(
-                onClick,
+                onClick = {
+                    val encodedUrlVk = Uri.encode("https://vk.ru")
+                    navController.navigate(NavigationItem.WebView(encodedUrlVk).route)
+                },
                 colors = ButtonDefaults.buttonColors(Color.Transparent),
                 modifier = Modifier
                     .paint(
@@ -160,7 +175,10 @@ fun SignInScreen(
                     .width(175.dp)
             ) { }
             Button(
-                onClick,
+                onClick = {
+                    val encodedUrlOk = Uri.encode("https://ok.ru")
+                    navController.navigate(NavigationItem.WebView(encodedUrlOk).route)
+                },
                 colors = ButtonDefaults.buttonColors(Color.Transparent),
                 modifier = Modifier
                     .paint(
@@ -170,7 +188,6 @@ fun SignInScreen(
                     .width(175.dp)
             ) { }
         }
-
 
     }
 }

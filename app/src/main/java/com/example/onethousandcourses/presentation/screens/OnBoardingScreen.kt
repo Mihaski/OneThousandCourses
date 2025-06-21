@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.onethousandcourses.R
+import com.example.onethousandcourses.presentation.NavigationItem
 import com.example.onethousandcourses.presentation.parts.ScrollContainerHorizontal
 import com.example.onethousandcourses.ui.theme.green
 import com.example.onethousandcourses.ui.theme.textWhite
@@ -35,11 +36,9 @@ fun OnBoardingScreen(
     Column(
         modifier
             .fillMaxSize()
-            .padding(0.dp)
-            .background(Color.Black)
-            .padding(top = 140.dp),
+            .background(Color.Black),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.SpaceBetween
+        verticalArrangement = Arrangement.Center
     ) {
 
         Column(
@@ -57,7 +56,7 @@ fun OnBoardingScreen(
         }
 
         Button(
-            { navController.navigate("sign_in") },
+            onClick = { navController.navigate(NavigationItem.SignIn.route) },
             Modifier
                 .padding(10.dp)
                 .fillMaxWidth(),

@@ -1,13 +1,24 @@
 package com.example.onethousandcourses.presentation
 
-import com.example.onethousandcourses.R
+import com.example.domain.Course
 
-sealed class NavigationItem(val label: String, val iconRes: Int) {
-    data object Home : NavigationItem("Главная", R.drawable.home_icon)
-    data object Favorites : NavigationItem("Избранное", R.drawable.favorite_icon_bar)
-    data object Account : NavigationItem("Аккаунт", R.drawable.account_icon)
+sealed class NavigationItem(val label: String = "", val iconRes: Int? = null, val route: String) {
 
-    companion object {
-        val items = listOf(Home, Favorites, Account)
+    data class WebView(val link: String) : NavigationItem(route = "web_view/$link") {
+        companion object {
+            const val ROUTE_WITH_ARGS = "web_view/{link}"
+        }
     }
+
+    data class Details(val course: Course) : NavigationItem(route = "details/$course") {
+        companion object {
+            const val ROUTE_WITH_ARGS = "details/{course}"
+        }
+    }
+
+    data object OnBoarding : NavigationItem(route = "on_boarding")
+
+    data object SignIn : NavigationItem(route = "sing_in")
+
+
 }

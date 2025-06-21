@@ -75,8 +75,8 @@ fun ItemCourse(
                     .padding(vertical = 8.dp, horizontal = 9.dp)
             ) {
                 val iconRes =
-                    if (selectHasLike) R.drawable.fillhasfavorite_icon_item
-                    else R.drawable.hasfavorite_icon_item
+                    if (selectHasLike) R.drawable.fill_has_favorite_icon_item
+                    else R.drawable.has_favorite_icon_item
                 Icon(
                     painter = painterResource(iconRes),
                     tint = if (selectHasLike) green else textWhite,

@@ -10,7 +10,7 @@ import com.example.onethousandcourses.R
 @Composable
 fun TestResources() {
     Icon(
-        painter = painterResource(R.drawable.home_icon),
+        painter = painterResource(R.drawable.main_icon_home),
         contentDescription = "Home Icon"
     )
 }
