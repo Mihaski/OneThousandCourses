@@ -57,16 +57,36 @@ fun OneNavHost(
                 SignInScreen(navController = navHostController)
             }
             composable("main") {
-                MainScreen()
+                MainScreen(navController = navHostController)
             }
             composable("account") {
                 AccountScreen()
             }
-            composable("favorites") { FavoriteScreen() }
+            composable("favorites") { FavoriteScreen(navController = navHostController) }
 
-            composable("details/{course}") { backStackEntry ->
-//                val courseId = backStackEntry.arguments?.getString("course")?.toIntOrNull()
-//                courseId?.let { DetailsScreen() }
+            composable(
+                route = NavigationItem.Details.ROUTE_WITH_ARGS,
+                arguments = listOf(
+                    navArgument("rate") { type = NavType.StringType },
+                    navArgument("startDate") { type = NavType.StringType },
+                    navArgument("title") { type = NavType.StringType },
+                    navArgument("textDescription") { type = NavType.StringType },
+                    navArgument("hasLike") { type = NavType.BoolType }
+                )) { backStackEntry ->
+                val rate = backStackEntry.arguments?.getString("rate") ?: ""
+                val startDate = backStackEntry.arguments?.getString("startDate") ?: ""
+                val title = backStackEntry.arguments?.getString("title") ?: ""
+                val textDescription = backStackEntry.arguments?.getString("textDescription") ?: ""
+                val hasLike = backStackEntry.arguments?.getBoolean("hasLike") ?: false
+
+                DetailsScreen(
+                    rate = rate,
+                    startDate = startDate,
+                    title = title,
+                    textDescription = textDescription,
+                    hasLike = hasLike,
+                    navController = navHostController
+                )
             }
             composable(
                 route = NavigationItem.WebView.ROUTE_WITH_ARGS,

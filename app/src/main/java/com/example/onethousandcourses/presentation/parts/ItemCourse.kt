@@ -25,9 +25,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.onethousandcourses.R
+import com.example.onethousandcourses.presentation.NavigationItem
 import com.example.onethousandcourses.ui.theme.appStyle
 import com.example.onethousandcourses.ui.theme.glass
 import com.example.onethousandcourses.ui.theme.green
@@ -35,10 +36,10 @@ import com.example.onethousandcourses.ui.theme.greyCard
 import com.example.onethousandcourses.ui.theme.hintTextGrey
 import com.example.onethousandcourses.ui.theme.textWhite
 
-@Preview
 @Composable
 fun ItemCourse(
     modifier: Modifier = Modifier,
+    navController: NavController,
     rate: String = "4.9",
     startDate: String = "22 мая 2024",
     hasLike: Boolean = false,
@@ -133,8 +134,21 @@ fun ItemCourse(
                     .padding(top = 10.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Text("$price P", style = appStyle)
-                Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("$price ₽", style = appStyle)
+                Row(
+                    modifier = Modifier.clickable {
+                        navController.navigate(
+                            NavigationItem.Details(
+                                rate = rate,
+                                startDate = startDate,
+                                title = title,
+                                textDescription = textDescription,
+                                hasLike = hasLike
+                            ).route
+                        )
+                    },
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Text("Подробнее", style = appStyle, color = green)
                     Icon(
                         tint = green,

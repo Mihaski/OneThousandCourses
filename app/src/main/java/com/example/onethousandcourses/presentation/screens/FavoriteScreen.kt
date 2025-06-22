@@ -24,11 +24,10 @@ import com.example.onethousandcourses.MainViewModel
 import com.example.onethousandcourses.presentation.parts.ItemCourse
 import com.example.onethousandcourses.ui.theme.appStyle
 
-@Preview
 @Composable
 fun FavoriteScreen(
     modifier: Modifier = Modifier,
-    navController: NavController = rememberNavController(),
+    navController: NavController,
     viewModel: MainViewModel = hiltViewModel(),
 ) {
     val courses by viewModel.uiState.collectAsState()
@@ -57,6 +56,7 @@ fun FavoriteScreen(
                 key = { it.id }
             ) { item ->
                 ItemCourse(
+                    navController = navController,
                     rate = item.rate,
                     startDate = item.startDate,
                     hasLike = item.hasLike,

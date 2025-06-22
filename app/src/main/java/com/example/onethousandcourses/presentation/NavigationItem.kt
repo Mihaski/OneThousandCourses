@@ -1,7 +1,5 @@
 package com.example.onethousandcourses.presentation
 
-import com.example.domain.Course
-
 sealed class NavigationItem(val label: String = "", val iconRes: Int? = null, val route: String) {
 
     data class WebView(val link: String) : NavigationItem(route = "web_view/$link") {
@@ -10,9 +8,15 @@ sealed class NavigationItem(val label: String = "", val iconRes: Int? = null, va
         }
     }
 
-    data class Details(val course: Course) : NavigationItem(route = "details/$course") {
+    data class Details(
+        val rate: String,
+        val startDate: String,
+        val title: String,
+        val textDescription: String,
+        val hasLike: Boolean,
+    ) : NavigationItem(route = "details/$rate/$startDate/$title/$textDescription/$hasLike") {
         companion object {
-            const val ROUTE_WITH_ARGS = "details/{course}"
+            const val ROUTE_WITH_ARGS = "details/{rate}/{startDate}/{title}/{textDescription}/{hasLike}"
         }
     }
 

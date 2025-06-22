@@ -15,6 +15,8 @@ val appStyle = TextStyle(
     color = Color.White
 )
 
-val normalStyle = appStyle.copy(fontSize = 18.sp)
+val hintStyle = appStyle.copy(color = Color.Unspecified, fontSize = 18.sp)
+
+val normalStyle = appStyle.copy(fontSize = 20.sp)
 val titleStyle = appStyle.copy(fontSize = 30.sp)
-val smallStyle = appStyle.copy(fontSize = 30.sp)
+val smallStyle = appStyle.copy(fontSize = 18.sp)
