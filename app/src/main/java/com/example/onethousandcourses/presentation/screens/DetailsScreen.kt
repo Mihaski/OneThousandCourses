@@ -28,11 +28,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
+import com.example.onethousandcourses.MainViewModel
 import com.example.onethousandcourses.R
 import com.example.onethousandcourses.ui.theme.appStyle
 import com.example.onethousandcourses.ui.theme.glass
@@ -44,6 +44,7 @@ import com.example.onethousandcourses.ui.theme.textWhite
 @Composable
 fun DetailsScreen(
     modifier: Modifier = Modifier,
+    courseId: Int,
     rate: String = "4.9",
     startDate: String = "22 мая 2024",
     title: String = "Java-разработчик с нуля",
@@ -53,6 +54,7 @@ fun DetailsScreen(
             " специалистом для любой IT компании.",
     hasLike: Boolean = false,
     navController: NavController,
+    viewModel: MainViewModel = hiltViewModel(),
 ) {
 
     var selectHasLike by remember { mutableStateOf(hasLike) }
@@ -203,6 +205,7 @@ fun DetailsScreen(
                 contentDescription = "popBackStack",
             )
         }
+        //hasLike container for toggleLike
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
@@ -211,7 +214,10 @@ fun DetailsScreen(
                 .size(44.dp)
                 .clip(CircleShape)
                 .background(textWhite)
-                .clickable(onClick = { selectHasLike = !selectHasLike })
+                .clickable(onClick = {
+                    viewModel.toggleLike(courseId = courseId)
+                    selectHasLike = !selectHasLike
+                })
         ) {
             val iconRes =
                 if (selectHasLike) R.drawable.fill_favourite_icon_bar_details

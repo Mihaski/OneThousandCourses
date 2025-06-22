@@ -71,8 +71,10 @@ fun OneNavHost(
                     navArgument("startDate") { type = NavType.StringType },
                     navArgument("title") { type = NavType.StringType },
                     navArgument("textDescription") { type = NavType.StringType },
-                    navArgument("hasLike") { type = NavType.BoolType }
+                    navArgument("hasLike") { type = NavType.BoolType },
+                    navArgument("courseId") { type = NavType.IntType }
                 )) { backStackEntry ->
+                val courseId = backStackEntry.arguments?.getInt("courseId") ?: 0
                 val rate = backStackEntry.arguments?.getString("rate") ?: ""
                 val startDate = backStackEntry.arguments?.getString("startDate") ?: ""
                 val title = backStackEntry.arguments?.getString("title") ?: ""
@@ -80,6 +82,7 @@ fun OneNavHost(
                 val hasLike = backStackEntry.arguments?.getBoolean("hasLike") ?: false
 
                 DetailsScreen(
+                    courseId = courseId,
                     rate = rate,
                     startDate = startDate,
                     title = title,

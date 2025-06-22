@@ -26,7 +26,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.onethousandcourses.MainViewModel
 import com.example.onethousandcourses.R
 import com.example.onethousandcourses.presentation.NavigationItem
 import com.example.onethousandcourses.ui.theme.appStyle
@@ -40,6 +42,7 @@ import com.example.onethousandcourses.ui.theme.textWhite
 fun ItemCourse(
     modifier: Modifier = Modifier,
     navController: NavController,
+    courseId: Int,
     rate: String = "4.9",
     startDate: String = "22 мая 2024",
     hasLike: Boolean = false,
@@ -49,6 +52,7 @@ fun ItemCourse(
             " свой собственный проект, собрав портфолио и став востребованным" +
             " специалистом для любой IT компании.",
     price: String = "999",
+    viewModel: MainViewModel = hiltViewModel(),
 ) {
     var selectHasLike by remember { mutableStateOf(hasLike) }
 
@@ -72,7 +76,10 @@ fun ItemCourse(
                     .align(Alignment.TopEnd)
                     .clip(CircleShape)
                     .background(glass)
-                    .clickable(onClick = { selectHasLike = !selectHasLike })
+                    .clickable(onClick = {
+                        viewModel.toggleLike(courseId = courseId)
+                        selectHasLike = !selectHasLike
+                    })
                     .padding(vertical = 8.dp, horizontal = 9.dp)
             ) {
                 val iconRes =
@@ -143,7 +150,8 @@ fun ItemCourse(
                                 startDate = startDate,
                                 title = title,
                                 textDescription = textDescription,
-                                hasLike = hasLike
+                                hasLike = hasLike,
+                                courseId = courseId
                             ).route
                         )
                     },

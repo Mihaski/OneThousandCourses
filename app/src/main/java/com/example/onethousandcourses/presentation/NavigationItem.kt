@@ -9,14 +9,18 @@ sealed class NavigationItem(val label: String = "", val iconRes: Int? = null, va
     }
 
     data class Details(
+        val courseId: Int,
         val rate: String,
         val startDate: String,
         val title: String,
         val textDescription: String,
         val hasLike: Boolean,
-    ) : NavigationItem(route = "details/$rate/$startDate/$title/$textDescription/$hasLike") {
+    ) : NavigationItem(
+        route = "details/$rate/$startDate/$title/$textDescription/$hasLike/$courseId"
+    ) {
         companion object {
-            const val ROUTE_WITH_ARGS = "details/{rate}/{startDate}/{title}/{textDescription}/{hasLike}"
+            const val ROUTE_WITH_ARGS =
+                "details/{rate}/{startDate}/{title}/{textDescription}/{hasLike}/{courseId}"
         }
     }
 

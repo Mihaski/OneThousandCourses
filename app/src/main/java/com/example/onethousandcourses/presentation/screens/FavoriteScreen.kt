@@ -14,12 +14,10 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.onethousandcourses.MainViewModel
 import com.example.onethousandcourses.presentation.parts.ItemCourse
 import com.example.onethousandcourses.ui.theme.appStyle
@@ -56,6 +54,7 @@ fun FavoriteScreen(
                 key = { it.id }
             ) { item ->
                 ItemCourse(
+                    courseId = item.id,
                     navController = navController,
                     rate = item.rate,
                     startDate = item.startDate,
