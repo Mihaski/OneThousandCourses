@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -25,4 +26,10 @@ interface RoomDao {
 
     @Query("DELETE FROM courses_table")
     suspend fun clearCache()
+
+    @Query("SELECT * FROM courses_table WHERE id = :courseId LIMIT 1")
+    suspend fun getCourseById(courseId: Int): DBModelCourse?
+
+    @Update
+    suspend fun updateCourse(course: DBModelCourse)
 }

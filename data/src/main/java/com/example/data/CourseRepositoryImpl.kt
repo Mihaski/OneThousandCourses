@@ -80,4 +80,12 @@ class CourseRepositoryImpl @Inject constructor(
             null
         }
     }
+
+    override suspend fun toggleLike(courseId: Int) {
+        val course = databaseAccessInterface.getCourseById(courseId)
+        if (course != null) {
+            val updatedCourse = course.copy(hasLike = !course.hasLike)
+            databaseAccessInterface.updateCourse(updatedCourse)
+        }
+    }
 }
