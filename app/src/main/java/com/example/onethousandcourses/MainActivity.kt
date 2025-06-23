@@ -21,7 +21,8 @@ class MainActivity : ComponentActivity() {
 
             OneThousandCoursesTheme {
 
-                OneNavHost(navController, "main")
+// маршруты навигэйшнАйтем и ботомНавАйтем
+                OneNavHost(navController, "on_boarding")
             }
         }
     }
