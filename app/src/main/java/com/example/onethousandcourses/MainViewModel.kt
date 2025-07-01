@@ -17,7 +17,7 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     val uiState = getListCoursesUseCase.getListCoursesUseCase()
-        .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), emptyList())
 
     fun toggleLike(courseId: Int) {
         viewModelScope.launch {
